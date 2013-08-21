@@ -12,8 +12,8 @@ public class CalagatorPageObjectTest extends BaseSeleniumTest {
     
     @Test(timeout = TEST_TIMEOUT)
     public void testAddTagWithPageObject() {
-        CalagatorMainPage mainPage = CalagatorMainPage.getThere(driver);
-        CalagatorEventPage eventPage = mainPage.findEvent("Portland Java User Group");
+        CalagatorMainPage main = CalagatorMainPage.getThere(driver);
+        CalagatorEventPage eventPage = main.findEvent("Portland Java User Group");
         CalagatorEventEditPage editPage = eventPage.getSidebar().editEvent();
         editPage.addTag("meta");
     }

@@ -16,7 +16,7 @@ public class CalagatorEventSidebar extends AbstractPageElement {
     }
 
     public CalagatorEventEditPage editEvent() {
-        driver.findElement(By.xpath(".//a[text()='edit']")).click();
+        root.findElement(By.xpath(".//a[text()='edit']")).click();
 
         CalagatorEventEditPage page = new CalagatorEventEditPage(driver);
         PageFactory.initElements(driver, page);
