@@ -1,4 +1,4 @@
-package com.pjug;
+package webdriver.example;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -18,11 +18,13 @@ public abstract class BaseSeleniumTest {
     @BeforeClass
     public static void setup() {
         driver = new FirefoxDriver();
+        ThreadWebDriver.set(driver);
     }
 
     @AfterClass
     public static void teardown() throws Exception {
         Thread.sleep(3000);
         driver.close();
+        ThreadWebDriver.remove();
     }
 }

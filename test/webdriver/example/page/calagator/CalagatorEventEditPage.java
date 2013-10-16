@@ -1,6 +1,5 @@
-package com.pjug.page.calagator;
+package webdriver.example.page.calagator;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -9,15 +8,9 @@ import org.openqa.selenium.support.FindBy;
  */
 public class CalagatorEventEditPage {
     
-    private WebDriver driver;
-    
     @FindBy(id = "event_tag_list")
     private WebElement tagsInputEl;
 
-    public CalagatorEventEditPage(WebDriver driver) {
-        this.driver = driver;
-    }
-    
     public void addTag(String tag) {
         String existingTags = tagsInputEl.getAttribute("value");
         String newTags = existingTags + ", meta";

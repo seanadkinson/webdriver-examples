@@ -1,9 +1,12 @@
-package com.pjug;
+package webdriver.example;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.lang.String;
 
 /**
  *
@@ -18,15 +21,16 @@ public class GoogleSearchExample {
             driver.get("http://google.com");
             WebElement searchEl = driver.findElement(By.name("q"));
             
-            // Search for PJUG and wait a sec
-            searchEl.sendKeys("PJUG");
+            // Search for selenium group and wait a sec
+            searchEl.sendKeys("pdx selenium" + Keys.ENTER);
             Thread.sleep(1000);
             
-            // Click PJUG and wait for a bit on the page
-            WebElement pjugLink = driver.findElement(By.xpath("//a/em[text()='Portland Java User Group']"));
-            pjugLink.click();
+            // Click meetup and wait for a bit on the page
+            WebElement link = driver.findElement(By.xpath("//a/em[text()='pdx Selenium']"));
+            link.click();
             Thread.sleep(5000);
-            
+
+            System.out.println("Current title is: " + driver.getTitle());
         }
         finally {
             // Make sure to always shut down WebDriver in a finally block!
