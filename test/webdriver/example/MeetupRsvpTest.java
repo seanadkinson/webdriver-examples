@@ -24,7 +24,7 @@ public class MeetupRsvpTest extends BaseSeleniumTest {
         driver.findElement(By.id("password")).sendKeys("password" + Keys.ENTER);
 
         // wait to be logged in
-        new WebDriverWait(driver, 5000)
+        new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOfElementLocated(
                         By.xpath("//div[@id='C_header']//a[text()='Sean Adkinson']")
                 ));

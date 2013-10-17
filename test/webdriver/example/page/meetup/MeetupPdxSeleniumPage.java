@@ -24,11 +24,18 @@ public class MeetupPdxSeleniumPage extends AbstractPage {
         return new MeetupHeader(headerEl);
     }
 
+    public void loginIfNeeded(String email, String password, String name) {
+        MeetupHeader header = getHeader();
+        if (!header.isLoggedIn()) {
+            MeetupLogin login = header.clickLoginLink();
+            login.loginWith(email, password, name);
+        }
+    }
+
     public MeetupEvent findEvent(int n) {
         WebElement eventList = getDriver().findElement(By.id("events-list-module"));
         WebElement eventEl = eventList.findElement(By.xpath(".//li[contains(@class, 'event-item')][" + n + "]"));
         assertNotNull(eventEl);
         return new MeetupEvent(eventEl);
     }
-
 }

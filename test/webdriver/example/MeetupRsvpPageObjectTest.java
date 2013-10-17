@@ -11,13 +11,13 @@ import static org.junit.Assert.*;
  *
  */
 public class MeetupRsvpPageObjectTest extends BaseSeleniumTest {
-    
+
     @Test(timeout = TEST_TIMEOUT)
     public void testGoingToNextMeetup() throws Exception {
         MeetupPdxSeleniumPage page = new MeetupPdxSeleniumPage();
         PageHelper.gotoPage(page);
 
-        page.getHeader().loginIfNeeded();
+        page.loginIfNeeded("sean.adkinson@gmail.com", "password", "Sean Adkinson");
         MeetupEvent secondEvent = page.findEvent(2);
         assertEquals("Approaching Test Script Maintainability: From Node to Python", secondEvent.getTitle());
         assertTrue(secondEvent.isAttending());

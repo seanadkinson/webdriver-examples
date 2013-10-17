@@ -14,24 +14,20 @@ public class MeetupHeader extends AbstractPageElement {
         super(root);
     }
 
-    public void loginIfNeeded() {
-        WebDriver driver = getDriver();
+    public boolean isLoggedIn() {
+        return getLoginLink() == null;
+    }
 
-        WebElement loginLink = findDescendant(By.linkText("Log in"));
-        if (loginLink == null) {
-            return;
-        }
+    private WebElement getLoginLink() {
+        return findDescendant(By.linkText("Log in"));
+    }
 
-        // login
+    public MeetupLogin clickLoginLink() {
+        WebElement loginLink = getLoginLink();
         loginLink.click();
-        driver.findElement(By.id("email")).sendKeys("sean.adkinson@gmail.com");
-        driver.findElement(By.id("password")).sendKeys("password" + Keys.ENTER);
-
-        // wait to be logged in
-        new WebDriverWait(driver, 5000)
-                .until(ExpectedConditions.visibilityOfElementLocated(
-                        By.xpath("//div[@id='C_header']//a[text()='Sean Adkinson']")
-                ));
+        WebElement loginPaneEl = new WebDriverWait(getDriver(), 5).until(
+                ExpectedConditions.visibilityOfElementLocated(By.id("paneLogin")));
+        return new MeetupLogin(loginPaneEl);
     }
 
 }
