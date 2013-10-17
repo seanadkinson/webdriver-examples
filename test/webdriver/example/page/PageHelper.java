@@ -12,6 +12,7 @@ public class PageHelper {
         driver.get(page.getUrl());
         new WebDriverWait(driver, 5).until(ExpectedConditions.visibilityOfElementLocated(page.getPageReadyBy()));
         page.assertOnPage(driver.getCurrentUrl());
+        page.onArrival();
     }
 
 }
