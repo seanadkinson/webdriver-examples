@@ -16,13 +16,13 @@ public abstract class BaseSeleniumTest {
     public static final long TEST_TIMEOUT = 60000; 
 
     @BeforeClass
-    public static void setup() {
+    public static void setupBrowser() {
         driver = new FirefoxDriver(FirefoxProfileFactory.create());
         ThreadWebDriver.set(driver);
     }
 
     @AfterClass
-    public static void teardown() throws Exception {
+    public static void closeBrowser() throws Exception {
         Thread.sleep(3000);
         driver.close();
         ThreadWebDriver.remove();
