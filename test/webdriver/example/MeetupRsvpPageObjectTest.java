@@ -21,6 +21,8 @@ public class MeetupRsvpPageObjectTest extends BaseSeleniumTest {
         MeetupEvent secondEvent = page.findEvent(2);
         assertEquals("Approaching Test Script Maintainability: From Node to Python", secondEvent.getTitle());
         assertTrue(secondEvent.isAttending());
+
+        // What if we wanted to make an assertion about the 3rd event?
     }
     
 }

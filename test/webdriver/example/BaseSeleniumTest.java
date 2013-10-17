@@ -17,7 +17,7 @@ public abstract class BaseSeleniumTest {
 
     @BeforeClass
     public static void setup() {
-        driver = new FirefoxDriver();
+        driver = new FirefoxDriver(FirefoxProfileFactory.create());
         ThreadWebDriver.set(driver);
     }
 

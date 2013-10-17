@@ -38,14 +38,13 @@
 
     <publications>
 
-        <artifact name="contour-api" type="jar" ext="jar" conf="master"/>
-
     </publications>
 
 
     <dependencies>
 
         <dependency org="org.seleniumhq.selenium" name="selenium-java" rev="2.34.0"/>
+        <dependency org="commons-lang" name="commons-lang" rev="2.6"/>
         <dependency org="junit" name="junit" rev="4.10"/>
         <dependency org="org.hamcrest" name="hamcrest-library" rev="1.3"/>
 
